@@ -1,74 +1,74 @@
 <?php
 			class Da_contact extends MY_Model { 
-			public $contact_id;
-			public $contact_head;
-			public $contact_phone;
-			public $contact_phone2;
-			public $contact_tal;
-			public $contact_fax;
-			public $contact_address;
-			public $contact_linkline;
-			public $contact_linkfacebook;
-			public $contact_location;
+			public $id;
+			public $company_name;
+			public $first_tel;
+			public $second_tel;
+			public $company_tel;
+			public $fax;
+			public $address;
+			public $line;
+			public $facebook;
+			public $img_map;
 			
 			public function inserts() {
-				$this->db->set('contact_id', $this->contact_id);
-				$this->db->set('contact_head', $this->contact_head);
-				$this->db->set('contact_phone', $this->contact_phone);
-				$this->db->set('contact_phone2', $this->contact_phone2);
-				$this->db->set('contact_tal', $this->contact_tal);
-				$this->db->set('contact_fax', $this->contact_fax);
-				$this->db->set('contact_address', $this->contact_address);
-				$this->db->set('contact_linkline', $this->contact_linkline);
-				$this->db->set('contact_linkfacebook', $this->contact_linkfacebook);
-				$this->db->set('contact_location', $this->contact_location);
+				$this->db->set('id', $this->id);
+				$this->db->set('company_name', $this->company_name);
+				$this->db->set('first_tel', $this->first_tel);
+				$this->db->set('second_tel', $this->second_tel);
+				$this->db->set('company_tel', $this->company_tel);
+				$this->db->set('fax', $this->fax);
+				$this->db->set('address', $this->address);
+				$this->db->set('line', $this->line);
+				$this->db->set('facebook', $this->facebook);
+				$this->db->set('img_map', $this->img_map);
 				
-				$this->db->from('gcp_contact');
+				$this->db->from('tbl_contact');
 				return $this->db->insert();
 			}
 			
 			public function inserts_array($data=null) {
 				$this->db->set($data);
-				$this->db->from('gcp_contact');
+				$this->db->from('tbl_contact');
 				return $this->db->insert();
 			}
 			public function updates_array($data=null,$key=null) {
-				return $this->db->update('gcp_contact', $data, $key);
+				return $this->db->update('tbl_contact', $data, $key);
 			}
 			public function updates() {
 				
-			$this->db->set('contact_id', $this->contact_id);
-				$this->db->set('contact_head', $this->contact_head);
-				$this->db->set('contact_phone', $this->contact_phone);
-				$this->db->set('contact_phone2', $this->contact_phone2);
-				$this->db->set('contact_tal', $this->contact_tal);
-				$this->db->set('contact_fax', $this->contact_fax);
-				$this->db->set('contact_address', $this->contact_address);
-				$this->db->set('contact_linkline', $this->contact_linkline);
-				$this->db->set('contact_linkfacebook', $this->contact_linkfacebook);
-				$this->db->set('contact_location', $this->contact_location);
+			$this->db->set('id', $this->id);
+				$this->db->set('company_name', $this->company_name);
+				$this->db->set('first_tel', $this->first_tel);
+				$this->db->set('second_tel', $this->second_tel);
+				$this->db->set('company_tel', $this->company_tel);
+				$this->db->set('fax', $this->fax);
+				$this->db->set('address', $this->address);
+				$this->db->set('line', $this->line);
+				$this->db->set('facebook', $this->facebook);
+				$this->db->set('img_map', $this->img_map);
 				
-				$this->db->from('gcp_contact');
-				$this->db->where('contact_id', $this->contact_id);
+				$this->db->from('tbl_contact');
+				$this->db->where('id', $this->id);
 				return $this->db->update();
 			}
 
 			public function deletes() {
-				$this->db->from('gcp_contact');
-				$this->db->where('contact_id', $this->contact_id);
+				$this->db->from('tbl_contact');
+				$this->db->where('id', $this->id);
 				$this->db->delete();
 			}
 
 			public function get_all() {
-				$this->db->from('gcp_contact');
-				$this->db->order_by('contact_id', 'ASC');
+				$this->db->from('tbl_contact');
+				$this->db->order_by('id', 'ASC');
 				return $this->db->get()->result();
 			}
 
 			public function get_by_key($key) {
 				$this->db->select('*');
-				$this->db->from('gcp_contact');
-				$this->db->where('contact_id', $key);
+				$this->db->from('tbl_contact');
+				$this->db->where('id', $key);
 				$query = $this->db->get()->result();
 				return $query;
 			}

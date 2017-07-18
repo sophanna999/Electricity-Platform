@@ -13,81 +13,72 @@
 		public function index() {
 			
 			$this->load->library('form_validation');
-			$this->mPageTitle = 'About';
+			$this->mPageTitle            = 'About';
 			$this->mViewData['data_cat'] = $this->mo_about->get_all();
-			$form = $this->form_builder->create_form();
-			$this->mViewData['form'] = $form;
+			$form = $this->form_builder  ->create_form();
+			$this->mViewData['form']     = $form;
 			$this->render('about/v_about');
 		}
 
 		public function create($id=NULL) {
 
 			$this->load->library('form_validation');
-				// $this->form_validation->set_rules('aboutat_logo','Aboutat_logo', 'required');
-				$this->form_validation->set_rules('aboutat_nameth','Aboutat_nameth', 'required');
-				$this->form_validation->set_rules('aboutat_nameen','Aboutat_nameen', 'required');
-				$this->form_validation->set_rules('aboutat_detailth','Aboutat_detailth', 'required');
+				$this->form_validation->set_rules('title','Title', 'required');
+				$this->form_validation->set_rules('detail','Detail', 'required');
+				$this->form_validation->set_rules('image','Image', 'required');
 						
 		$this->mViewData['about'] = '';
 
-		if($id!=NULL || !empty($this->input->post('aboutat_id'))){
-			if($this->form_validation->run() == FALSE){
+		if($id!=NULL || !empty($this->input->post('id'))){
+			if(empty($this->input->post())){
 				$this->mViewData['about'] = $this->mo_about->get_by_key($id);
 			}
 			else{
-				// $field_name = "aboutat_logo";
-				// $path = "./assets/uploads/about/";
-				// $allowed_types = "png|jpg|jpeg|gif";
-				// $img_name = $this->upload_file($field_name, $path, $allowed_types); 
+				$field_name    = "image";
+				$path  		   = "./assets/uploads/about/";
+				$allowed_files = "jpg|png|jpeg|gif";
+				$img_name      = $this->upload_file($field_name, $path, $allowed_files);	
 
-
-				$this->mo_about->aboutat_id = $this->input->post('aboutat_id');
-				$this->mo_about->aboutat_logo = $this->input->post('aboutat_logo');
-				$this->mo_about->aboutat_nameth = $this->input->post('aboutat_nameth');
-				$this->mo_about->aboutat_nameen = $this->input->post('aboutat_nameen');
-				$this->mo_about->aboutat_detailth = $this->input->post('aboutat_detailth');
-
-				// if($img_name!="")
-				// 	$this->mo_about->aboutat_logo = $img_name;
-				// else
-				// 	$this->mo_about->aboutat_logo = $this->mViewData['about'][0]->aboutat_logo;
+				$this->mo_about->id = $this->input->post('id');
+				$this->mo_about->title   = $this->input->post('title');
+				$this->mo_about->detail  = $this->input->post('detail');
+				// $this->mo_about->image   = $this->input->post('image');
+				if ($img_name) {
+					$this->mo_about->image = $img_name;
+				} else {
+					$this->mo_about->image = $this->input->post('old_image)');
+				}
 				
 				$this->mo_about->updates();
-				redirect('admin/about/create/1', 'refresh');
+				redirect('admin/about/', 'refresh');
 			}
-		}
-		else{
-			if($this->form_validation->run() == FALSE){
-				
-			}
-			else{
-				// $field_name = "aboutat_logo";
-				// $path = "./assets/uploads/about/";
-				// $allowed_types = "png|jpg|jpeg|gif";
-				// $img_name = $this->upload_file($field_name, $path, $allowed_types); 
+		} else {
+			if ($this->input->post() != null ) {
 
+				$field_name     = "image";
+				$path           = "./assets/uploads/about";
+				$allowed_files  = "jpg|png|jpeg|gif";
+				$img_name 	    = $this->upload_file($field_name, $path, $allowed_files);
 
-			$this->mo_about->aboutat_id = $this->input->post('aboutat_id');
-				$this->mo_about->aboutat_logo = $img_name;
-				$this->mo_about->aboutat_nameth = $this->input->post('aboutat_nameth');
-				$this->mo_about->aboutat_nameen = $this->input->post('aboutat_nameen');
-				$this->mo_about->aboutat_detailth = $this->input->post('aboutat_detailth');
+				$this->mo_about->id     = $this->input->post('id');
+				$this->mo_about->title  = $this->input->post('title');
+				$this->mo_about->detail = $this->input->post('detail');
+				$this->mo_about->image  = $img_name;
 				
 				$this->mo_about->inserts();
 				redirect('admin/about/', 'refresh');
 			}
-		}
-
-		$this->mPageTitle = 'ABOUT';
-		
-		$form = $this->form_builder->create_form();
-		$this->mViewData['form'] = $form;
-		$this->render('about/v_about_create');
 	}
+				$this->mPageTitle = 'Create about';
+				$form = $this->form_builder->create_form();
+				$this->mViewData['form'] = $form;
+				$this->render('about/v_about_create');
+}
+
 	
 	public function deletes($id=NULL) {
 		if($id!=NULL){
-			$this->mo_about->aboutat_id = $id;
+			$this->mo_about->id = $id;
 			$this->mo_about->deletes();
 		}
 		redirect('admin/about/', 'refresh');

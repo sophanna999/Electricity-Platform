@@ -1,6 +1,6 @@
 <header class="main-header">
-	<a href="" class="logo"><img style="width: 30px;" src="<?php echo base_url('assets/images/lolo1.png'); ?>"> <b><?php echo $site_name; ?></b></a>
-	<nav class="navbar navbar-static-top" role="navigation">
+	<a href="" class="logo" style="background-color: #0048c5" ><img style="width: 50px;" src="<?php echo base_url('assets/images/electricity-logo.png'); ?>"> <b><?php echo $site_name; ?></b></a>
+	<nav class="navbar navbar-static-top" style="background-color: #0048c5" role="navigation">
 		<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
 			<span class="sr-only">Toggle navigation</span>
 			<span class="icon-bar"></span>

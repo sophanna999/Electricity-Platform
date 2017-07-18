@@ -69,82 +69,47 @@ $config['ci_bootstrap_menu'] = array(
     //     )
     	)
 	);
-				$config['ci_bootstrap_menu']['menu']['content'] = array(
-					'name' => 'Banner Management',
-					'url' => 'content/create/1',
-					'icon' => 'glyphicon glyphicon-modal-window',
-				);
-				$config['ci_bootstrap_menu']['menu']['slide'] = array(
-					'name' => 'Slide Management',
-					'url' => 'slide',
-					'icon' => 'fa fa-picture-o',
-					'children' => array(
-						'รายการสไลด์ทั้งหมด' => 'slide',
-						'เพิ่มสไลด์' => 'slide/create'
-					)
-				);
-				$config['ci_bootstrap_menu']['menu']['maincontent'] = array(
-					'name' => 'Promotions',
-					'url' => 'maincontent/create/1',
-					'icon' => 'glyphicon glyphicon-list-alt',
-				);
 				$config['ci_bootstrap_menu']['menu']['news'] = array(
 					'name' => 'News',
 					'url' => 'news',
 					'icon' => 'fa fa-newspaper-o',
 					'children' => array(
-						'ข่าวสารทั้งหมด' => 'news',
-						'เพิ่มข่าวสาร' => 'news/create'
-					)
-				);
-				$config['ci_bootstrap_menu']['menu']['category'] = array(
-					'name' => 'Category',
-					'url' => 'category',
-					'icon' => 'glyphicon glyphicon-tasks',
-					'children' => array(
-						'หมวดหมู่ทั้งหมด' => 'category',
-						'เพิ่มหมวดหมู่' => 'category/create'
-					)
-				);
-				$config['ci_bootstrap_menu']['menu']['product'] = array(
-					'name' => 'Product',
-					'url' => 'product',
-					'icon' => 'fa fa-cart-plus',
-					'children' => array(
-						'รายการสินค้าทั้งหมด' => 'product',
-						'เพิ่มสินค้า' => 'product/create'
+						'List' => 'news',
+						'Create' => 'news/create'
 					)
 				);
 				$config['ci_bootstrap_menu']['menu']['about'] = array(
-					'name' => 'About us',
-					'url' => 'about/create/1',
-					'icon' => 'fa fa-address-card-o',
+					'name' => 'about',
+					'url' => 'about',
+					'icon' => 'fa fa-building-o',
+					'children' => array(
+						'List' => 'about',
+						'Create' => 'about/create'
+					)
 				);
+
 				$config['ci_bootstrap_menu']['menu']['contact'] = array(
-					'name' => 'ติดต่อเรา',
-					'url' => 'contact/create/1',
-					'icon' => 'fa fa-users',
-				);
-				$config['ci_bootstrap_menu']['menu']['download'] = array(
-					'name' => 'ไฟล์ดาวน์โหลด',
-					'url' => 'download',
-					'icon' => 'fa fa-file-pdf-o',
+					'name' => 'contact',
+					'url' => 'contact',
+					'icon' => 'fa fa-phone-square',
 					'children' => array(
-						'รายการไฟล์ทั้งหมด' => 'download',
-						'เพิ่มไฟล์ดาวน์โหลด' => 'download/create'
+						'List' => 'contact',
+						'Create' => 'contact/create'
 					)
 				);
-				$config['ci_bootstrap_menu']['menu']['contactuser'] = array(
-					'name' => 'ฟอร์มติดต่อ',
-					'url' => 'contactuser',
-					'icon' => 'fa fa-window-maximize',
+				$config['ci_bootstrap_menu']['menu']['slide'] = array(
+					'name' => 'slide',
+					'url' => 'slide',
+					'icon' => 'fa fa-sliders',
 					'children' => array(
-						'รายการฟอร์มติดต่อทั้งหมด' => 'contactuser',
-						'เพิ่มฟอร์มติดต่อ' => 'contactuser/create'
+						'List' => 'slide',
+						'Create' => 'slide/create'
 					)
 				);
+
 				$config['ci_bootstrap_menu']['menu']['logout'] = array(
 					'name' => 'ออกจากระบบ',
 		            'url' => 'panel/logout',
 		            'icon' => 'fa fa-sign-out',
 				);
+

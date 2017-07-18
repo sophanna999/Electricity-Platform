@@ -1,7 +1,7 @@
 <div class="wrapper">
     <?php $this->load->view('_partials/navbar'); ?> 
     <?php // Left side column. contains the logo and sidebar ?>
-    <aside class="main-sidebar" style="background-color:#677af7;" >
+    <aside class="main-sidebar" style="background-color: #142e40">
         <section class="sidebar">
             <div class="user-panel" style="height:65px">
                 <div class="pull-left info" style="left:5px">
